@@ -37,14 +37,17 @@
         background: #475569;
       }
     </style>
-  <script type="importmap">
+    
+    <!-- Import Map: Ensures a single version of React is used across all dependencies -->
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
-    "recharts": "https://esm.sh/recharts@^3.6.0"
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "framer-motion": "https://esm.sh/framer-motion@10.16.4?deps=react@18.2.0,react-dom@18.2.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.292.0?deps=react@18.2.0",
+    "recharts": "https://esm.sh/recharts@2.12.2?deps=react@18.2.0,react-dom@18.2.0",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
@@ -53,20 +56,21 @@
     <div id="root"></div>
 
     <script type="text/babel" data-type="module">
-      // Imports via ESM.sh for browser compatibility
-      import React, { useState, useEffect, useRef } from 'https://esm.sh/react@18.2.0';
-      import { createRoot } from 'https://esm.sh/react-dom@18.2.0/client';
-      import { motion, useInView, useAnimation } from 'https://esm.sh/framer-motion@10.16.4';
+      // Imports using bare module names defined in importmap
+      import React, { useState, useEffect, useRef } from 'react';
+      import { createRoot } from 'react-dom/client';
+      import { motion, useInView, useAnimation } from 'framer-motion';
       import { 
         Menu, X, Activity, ArrowRight, BarChart3, Clock, 
         Database, FileSearch, TrendingDown, UploadCloud, 
         Waypoints, SearchCheck, Rocket, Target, Globe, 
-        Crosshair, Check, MapPin, Users, Zap 
-      } from 'https://esm.sh/lucide-react@0.292.0';
+        Crosshair, Check, MapPin, Users, Zap, TrendingUp,
+        Repeat, AlertCircle, Banknote
+      } from 'lucide-react';
       import { 
         BarChart, Bar, XAxis, YAxis, Tooltip, 
         ResponsiveContainer, Cell 
-      } from 'https://esm.sh/recharts@2.9.0';
+      } from 'recharts';
 
       // --- COMPONENTS ---
 
@@ -637,7 +641,7 @@
                 </div>
               </Reveal>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
                 
                 {/* Strategy */}
                 <div className="space-y-8">
@@ -729,8 +733,82 @@
                     </div>
                   </Reveal>
                 </div>
-
               </div>
+
+              {/* Unit Economics & KPIs Section */}
+              <Reveal delay={0.6}>
+                <div className="border-t border-slate-800 pt-10">
+                  <div className="flex flex-col md:flex-row items-center justify-between mb-8">
+                    <h4 className="text-2xl font-bold text-white">Unit Economics & KPIs</h4>
+                    <span className="text-slate-500 text-sm">Objectifs Year 2</span>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {/* CAC Efficiency */}
+                    <div className="bg-slate-800/40 p-6 rounded-xl border border-slate-700 hover:border-indigo-500/50 transition-colors group">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-2 bg-indigo-500/20 rounded-lg text-indigo-400 group-hover:text-indigo-300">
+                           <TrendingUp className="w-5 h-5" />
+                        </div>
+                        <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">Efficacité</span>
+                      </div>
+                      <div className="mb-1">
+                        <span className="text-3xl font-bold text-white">4:1</span>
+                      </div>
+                      <p className="text-sm text-slate-400">Ratio LTV : CAC</p>
+                      <p className="text-xs text-emerald-500 mt-2 font-medium">Excellent (Target > 3:1)</p>
+                    </div>
+
+                    {/* LTV */}
+                    <div className="bg-slate-800/40 p-6 rounded-xl border border-slate-700 hover:border-cyan-500/50 transition-colors group">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-2 bg-cyan-500/20 rounded-lg text-cyan-400 group-hover:text-cyan-300">
+                           <Banknote className="w-5 h-5" />
+                        </div>
+                        <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">LTV Client</span>
+                      </div>
+                      <div className="mb-1">
+                        <span className="text-3xl font-bold text-white">144k</span>
+                        <span className="text-sm text-slate-500 ml-1">DH</span>
+                      </div>
+                      <p className="text-sm text-slate-400">Revenu total / client</p>
+                      <p className="text-xs text-slate-500 mt-2">Basé sur 24 mois de vie</p>
+                    </div>
+
+                    {/* Churn */}
+                    <div className="bg-slate-800/40 p-6 rounded-xl border border-slate-700 hover:border-red-500/50 transition-colors group">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-2 bg-red-500/20 rounded-lg text-red-400 group-hover:text-red-300">
+                           <AlertCircle className="w-5 h-5" />
+                        </div>
+                        <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">Churn Rate</span>
+                      </div>
+                      <div className="mb-1">
+                        <span className="text-3xl font-bold text-white">&lt; 1.5%</span>
+                      </div>
+                      <p className="text-sm text-slate-400">Taux d'attrition mensuel</p>
+                      <p className="text-xs text-emerald-500 mt-2 font-medium">Rétention B2B forte</p>
+                    </div>
+
+                    {/* ARR/MRR */}
+                    <div className="bg-slate-800/40 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors group">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-2 bg-purple-500/20 rounded-lg text-purple-400 group-hover:text-purple-300">
+                           <Repeat className="w-5 h-5" />
+                        </div>
+                        <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">Recurring Rev</span>
+                      </div>
+                      <div className="mb-1">
+                        <span className="text-3xl font-bold text-white">3.6M</span>
+                        <span className="text-sm text-slate-500 ml-1">DH ARR</span>
+                      </div>
+                      <p className="text-sm text-slate-400">Soit 300k DH MRR</p>
+                      <p className="text-xs text-purple-400 mt-2 font-medium">+400% YoY Growth</p>
+                    </div>
+
+                  </div>
+                </div>
+              </Reveal>
             </div>
           </section>
         );
