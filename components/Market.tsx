@@ -15,7 +15,7 @@ export const Market: React.FC = () => {
                 Le "Mid-Market" est mal servi.
               </h3>
               <p className="text-slate-400 text-lg mb-6 leading-relaxed">
-                Les géants comme Celonis ciblent le CAC40 avec des tickets à 100k€.
+                Les géants comme Celonis ciblent le CAC40 avec des tickets à <span className="text-white font-semibold">1M DH</span>.
                 Excel ne suffit plus. Il reste un océan bleu : les PME.
               </p>
               

@@ -30,7 +30,7 @@ export const Pricing: React.FC = () => {
               <p className="text-slate-400 text-sm mb-6 h-10">Pour petites structures ou tests.</p>
               <div className="mb-6">
                 <span className="text-4xl font-bold text-white">2 500</span>
-                <span className="text-slate-400 text-sm"> MAD / mois</span>
+                <span className="text-slate-400 text-sm"> DH / mois</span>
               </div>
               <ul className="space-y-4 mb-8 flex-1">
                 <li className="flex items-start gap-3">
@@ -62,7 +62,7 @@ export const Pricing: React.FC = () => {
               <p className="text-slate-300 text-sm mb-6 h-10">PME Industrielles & Logistiques établies.</p>
               <div className="mb-6">
                 <span className="text-4xl font-bold text-indigo-400">6 000</span>
-                <span className="text-slate-400 text-sm"> MAD / mois</span>
+                <span className="text-slate-400 text-sm"> DH / mois</span>
               </div>
               <ul className="space-y-4 mb-8 flex-1">
                 <li className="flex items-start gap-3">
@@ -95,7 +95,7 @@ export const Pricing: React.FC = () => {
               <p className="text-slate-400 text-sm mb-6 h-10">Grandes industries multi-sites.</p>
               <div className="mb-6">
                 <span className="text-3xl font-bold text-white">Sur Devis</span>
-                <span className="text-slate-400 text-sm block">> 15 000 MAD</span>
+                <span className="text-slate-400 text-sm block">> 15 000 DH</span>
               </div>
               <ul className="space-y-4 mb-8 flex-1">
                 <li className="flex items-start gap-3">

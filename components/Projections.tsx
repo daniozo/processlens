@@ -4,8 +4,8 @@ import { MapPin, Users, Zap } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const data = [
-  { name: 'Année 1', revenue: 0.7, label: '700k MAD' },
-  { name: 'Année 2', revenue: 3.6, label: '3.6M MAD' },
+  { name: 'Année 1', revenue: 0.7, label: '700k DH' },
+  { name: 'Année 2', revenue: 3.6, label: '3.6M DH' },
 ];
 
 export const Projections: React.FC = () => {
@@ -65,7 +65,7 @@ export const Projections: React.FC = () => {
           <div className="h-full min-h-[400px]">
             <Reveal delay={0.4}>
               <div className="bg-slate-800/30 p-8 rounded-2xl border border-slate-700 h-full flex flex-col justify-center">
-                <h4 className="text-xl font-bold text-white mb-2 text-center">Revenue Prévisionnel (MAD)</h4>
+                <h4 className="text-xl font-bold text-white mb-2 text-center">Revenue Prévisionnel (DH)</h4>
                 <p className="text-center text-slate-400 text-sm mb-8">De la traction au scale</p>
                 
                 <div className="h-[300px] w-full">
@@ -86,7 +86,7 @@ export const Projections: React.FC = () => {
                       <Tooltip 
                         contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155', color: '#fff' }}
                         itemStyle={{ color: '#fff' }}
-                        formatter={(value: number) => [`${value}M MAD`, 'Revenue']}
+                        formatter={(value: number) => [`${value}M DH`, 'Revenue']}
                         cursor={{fill: 'rgba(255,255,255,0.05)'}}
                       />
                       <Bar dataKey="revenue" radius={[4, 4, 0, 0]}>
